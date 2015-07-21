@@ -1,0 +1,187 @@
+/*------------------------------------------------------------------------------*/
+//Author: Ankur Singhal
+//Description: Demo for the TLI Website
+//Version: 0.1
+//URL: https://www.facebook.com/anksin1994
+/*------------------------------------------------------------------------------*/
+
+
+@import 'bourbon/bourbon';
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/layout';
+
+
+/*------------------------------------------------------------------------------*/
+//General Styling
+/*------------------------------------------------------------------------------*/
+
+*,
+*::after,
+*::before{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: $primary-font;
+  padding-top: 2*$header-L;
+}
+
+
+/*------------------------------------------------------------------------------*/
+//Header Styling
+/*------------------------------------------------------------------------------*/
+
+$temp: 20px;
+
+.an-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: $header-M;
+  width: 100%;
+  background-color: $color-1;
+  z-index: 2;
+}
+
+#logo{
+  float: left;
+  margin: 0.5 * ($header-M - $temp) 0 0 5%;
+  div{
+    width: 25px;
+    height: $temp;
+    float: left;
+    &:nth-of-type(1){
+      background-color: darken($color-1, 10%);
+    }
+    &:nth-of-type(2){
+      background-color: darken($color-1, 20%);
+    }
+    &:nth-of-type(3){
+      background-color: darken($color-1, 30%);
+    }
+    &:nth-of-type(4){
+      background-color: darken($color-1, 40%);
+    }
+  }
+}
+
+.an-primary-nav{
+  float: right;
+  margin-right: 5%;
+  h3{
+    line-height: $header-M;
+    color: #fff;
+  }
+}
+
+/*------------------------------------------------------------------------------*/
+//Grid Styling
+/*------------------------------------------------------------------------------*/
+
+.an-grid-gallery{
+  margin: 0 auto;
+
+  figure{
+    margin: 0;
+
+    img{
+      display: block;
+    }
+  }
+
+  figcaption{
+    h3{
+      margin: 0;
+      padding: 0 0 0.5em;
+    }
+    .optionals{
+
+    }
+  }
+}
+
+.an-grid-wrap{
+  max-width: 69em;
+  margin: 0 auto;
+}
+
+.an-grid{
+  margin: 0 auto;
+  padding: 0 !important;
+  li{
+    float: left;
+    width: 100%;
+    padding-bottom: 10px;
+    min-height: 100px;
+    figure{
+      height: 100%;
+      padding: 10px;
+      @include clearfix;
+      .featured-img, figcaption{
+        float: left;
+        height: 100%;
+      }
+      .featured-img{
+        width: 30%;
+        padding-left: 10px;
+        img{
+          max-width: 100%;
+        }
+      }
+      figcaption{
+        width: 70%;
+        padding-left: 12px;
+        h3{
+          font-size: 12px;
+        }
+        .optionals{
+          font-size: 10px;
+          color: #333;
+          > span{
+            margin-left: 3px;
+          }
+          .share{
+            font-size: 13px;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
+@include mediaQuery(L){
+    .an-grid{
+      li{
+        width: 25%;
+        padding-bottom: 0 !important;
+        figure{
+          .featured-img, figcaption{
+            float: none;
+            width: auto;
+          }
+          .featured-img{
+            padding: 0 !important;
+          }
+          figcaption{
+            padding-left: 0px !important;
+            h3{
+              font-size: 16px;
+            }
+            .optionals{
+              font-size: 12px;
+              color: #333;
+              > span{
+                margin-left: 3px;
+              }
+              .share{
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+    }
+}
